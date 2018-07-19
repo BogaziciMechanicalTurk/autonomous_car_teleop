@@ -1,0 +1,14 @@
+<!--
+  Driver for the logitech rumblepad2 joystick.
+
+  Use the D pad while pressing and holding the left trigger button (5) to control.
+-->
+<launch>
+
+  <node pkg="autonomous_car_teleop" type="diff_key_control" name="diff_key_control" output="screen">
+    <param name="scale_angular" value="0.3"/>
+    <param name="scale_linear" value="30"/>
+    <remap from="/cmd_vel" to="/vrep/twistCommand"/>
+    <remap from="/vrep/twistCommand" to="/autonomous_car/twistCommand"/>
+  </node>
+</launch>
